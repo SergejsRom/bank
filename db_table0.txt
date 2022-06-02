@@ -1,0 +1,29 @@
+create database BankData;
+
+use BankData;
+
+create table accTab
+(accName varchar(20);
+accDetails varchar(50);
+facility varchar(250),
+minbalance numeric(1));
+
+create table CustomerAccTab
+(accNr numeric (10),
+password varchar(50),
+accName varchar(50),
+accSurname varchar(50),
+phone numeric(13),
+email varchar(50));
+
+create table trnsactionTab
+(transactionNr numeric(10),
+transactionDate date,
+accNr numeric(10),
+addMoney numeric(20),
+removeMoney numeric(20),
+transactionDetailsvarchar(100));
+
+create table adminTab
+(adminName varchar(20);
+password varchar(20));
