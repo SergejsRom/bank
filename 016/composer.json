@@ -1,0 +1,10 @@
+{
+    "name": "sergejs/016",
+    {
+        "autoload": {
+            "psr-4": {"Acme\\": "src/",
+            "Meska\\Lokys":""
+        }
+    },
+    "require": {}
+}

@@ -26,28 +26,36 @@
     session_start();
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
         //echo 'ok';
+        
         $one = $_POST['name1'];
         $two = $_POST['name2'];
         $three = $_POST['name3'];
+        $four = $_POST['num1'];
         //echo $one." ".$two;
-        $sqlvar="INSERT INTO accTab (accName,	accDetails, minbalance) 
-        VALUES('$one','$two',$three)";
-        $result=$conn -> query($sqlvar);
-       if($result) {
-           echo 'OK';
-       }else{
-           echo 'NOT OK';
-       }
-         
-     }
+        
+        $sql="INSERT INTO accTab (accName,	accSurname, accNum, accBalance) 
+        VALUES('$one','$two','$three',$four)";
+   
+        
+       if (strlen($one) > 3 && strlen($two > 3)) {
+        $result=$conn -> query($sql);
+        } else{
+
+            echo 'CHECK the data';
+        }
+       
+
+    }
+       
 
     ?>
     
 
     <form class=center action="http://localhost/bank/pages/account.php" method="post" >
-        Account Name <input class="margin-5" type="text" name="name1">
-        Details<input class="margin-5" type="text" name="name2">
-        MinBalance<input class="margin-5" type="text" name="name3">
+        Name <input class="margin-5" type="text" name="name1">
+        Surname<input class="margin-5" type="text" name="name2">
+        ACC number<input class="margin-5" type="text" value="LT<?= rand(100000000000000000, 999999999999999999);?>" name="name3">
+        Start Balance<input class="margin-5" type="number" name="num1">
         <button type="submit" class="btn btn-success margin-5">ADD</button>
     </form>
     <form action="http://localhost/bank/index.php" method="get">
